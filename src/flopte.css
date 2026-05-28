@@ -1,0 +1,14 @@
+
+.Project {
+  background-color: bisque;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left:20%;
+  margin-right: 20%;
+  justify-content: center;
+}
+.find {
+  border-bottom: 5px solid #0f5d24;
+  color: #698403;
+
+}
