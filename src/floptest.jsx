@@ -26,7 +26,6 @@ import ProjectsList from './components/neededme'
 
         }
     ]
-// JUST COPY THE VIDEOOOOOOOOOOOOOOOOOOOOO
     const [formData, setFormData] = "flop"
    const handleInputChange = (event) => {
     //    setFormData({...formData, [event.target.name]: event.target.value})
