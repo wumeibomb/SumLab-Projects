@@ -1,20 +1,20 @@
 import React, {useState} from 'react'
 import './flopte.css'
-import ProjectsList from './components/neededme'
+import ProjectsList from './components/projectsdisplay'
 
     const projects = [
         {
             id: 11,
             name: "FIRST,FLOP",
             img: "https://assets.bingbunny.com/sites/default/files/styles/l08_072000_1152x648/public/2023-05/DB0423B6-1117-4EEE-A1F3-4CC3EB04A0AA.jpeg.webp?itok=ickq93EW",
-            test: [1,2,3] //why did it only work when I added an array?, why didn't it take projects as the array.
+            test: [1] //why did it only work when I added an array?, why didn't it take projects as the array.
 
         },
         {
             id: 22,
             name: "TEAMO",
             img:  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnVWGmyarvgWKZPjyyT3rqoZgmlciDMZuFvg&s",
-            test: [4,5,6]
+            test: [4]
 
         
         },
@@ -22,15 +22,22 @@ import ProjectsList from './components/neededme'
             id: 33,
             name: "myMelodY",
             img: "https://e1.pngegg.com/pngimages/977/544/png-clipart-my-melody-s-sanrio-character-thumbnail.png",
-            test: [7,8,9]
+            test: [7]
 
         }
     ]
-    const [formData, setFormData] = "flop"
-   const handleInputChange = (event) => {
-    //    setFormData({...formData, [event.target.name]: event.target.value})
-  //  }
+   
+function App() {
 
+     const [formData, setFormData] = useState({
+        title: "",
+        description: ""
+    })
+    const [newproject, setNewProject] = useState([]) //array of new projects
+
+
+
+   const handleInputChange = (event) => {
 
         //object destructuring, {} -> destrucuture an object. [] -> destrucutre an array
        const {name, value} = event.target //target of the event contains name and value of the form
@@ -48,12 +55,14 @@ import ProjectsList from './components/neededme'
   const handleNewProject = (event)=> {
     event.preventDefault() 
 
+    const newProject = {
+        id: Date.now()
+        //...formData
+  }
+    setNewProject([...projects, newproject])
 
   }
-
         
-function App() {
-
     return (
         <>
         <h1 className="find" >Personal Project Showcase App</h1>
@@ -80,16 +89,23 @@ function App() {
             placeholder='Ohbabyiwasgettingbored'
             style = {{height: "80px",padding: "8px", display: "flex", margin: "5px"}}
             />
-             <button style={{height: "30px",fontSize: "15px", textAlign: "center", margin: "4px"}}>ADD</button>
+             <button type= "submit" onSubmit={handleNewProject } style={{height: "30px",fontSize: "15px", textAlign: "center", margin: "4px"}}>ADD</button>
 
          </form>
 
          <h2>BRUH</h2>
          <ProjectsList projects = {projects} />
 
-        <img src = {projects.img}/>       
          </>
     )
 }   
+
+function ShowNewProject({project}){ //project is given as a parameter
+    return (
+        <p>
+            
+        </p>
+    )
+}
 
 export default App
