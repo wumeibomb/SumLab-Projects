@@ -32,9 +32,8 @@ function App() {
      const [formData, setFormData] = useState({
         title: "",
         description: "",
-        img: ""
     })
-    const [newproject, setNewProject] = useState([]) //array of new projects
+    const [ project , setNewProject] = useState([]) //array of new projects
 
 
 
@@ -50,19 +49,17 @@ function App() {
           setFormData(newFormData)
     }
 
-        const handleSubmit = (bruh) => {
-    bruh.preventDefault();
-  }
   const handleNewProject = (event)=> {
     event.preventDefault() 
 
     const newProject = {
-        id: Date.now()
-        //...formData
+        id: Date.now(),
+        ...formData
   }
-    setNewProject([...projects, newproject])
+    setNewProject([...projects, newProject])
 
-  }
+}
+   const projectAdditions = projects.map((project) => <AddProject project = {project} />) //calling component
         
     return (
         <>
@@ -70,9 +67,8 @@ function App() {
 
         <h1 className="find" >Personal Project Showcase App</h1>
 
-        // search bar here
         <div className='form' style={{display: "flex",justifyContent: "center"}}>
-         <form onSubmit={handleSubmit} style = {{margin: "15px", border: "solid #8e1a1cb6", borderRadius: "7px", display: "flex", flexDirection: "column", width: "500px"}}>
+         <form onSubmit={handleNewProject} style = {{margin: "15px", border: "solid #8e1a1cb6", borderRadius: "7px", display: "flex", flexDirection: "column", width: "500px"}}>
 
             <p style={{marginTop: "10px", marginLeft: "5px", marginBottom: "1px", color: "#64bb3c", fontWeight: "bold"}}>Title</p>
             <input 
@@ -94,28 +90,38 @@ function App() {
             style = {{height: "80px",padding: "8px", display: "flex", margin: "5px"}}
             />
 
-            <p style={{marginTop: "10px", marginLeft: "5px", marginBottom: "1px"}}>img?</p>
-            <input 
-            type= "image"
-            value={formData.img}
-            ></input>
-             <button type= "submit" onSubmit={handleNewProject } style={{height: "30px",fontSize: "15px", textAlign: "center", margin: "4px"}}>ADD</button>
 
+             <button type= "submit" //i also wanted to add an image submission button, but I couldn't find a way to do it in js...
+             style={{height: "30px",fontSize: "15px", textAlign: "center", margin: "4px"}}
+               > ADD
+                </button>
+                
          </form>
+        
 </div>
+
          <h2 style= {{textAlign: "center", color:"#698403"}}>Projects:</h2>
          <ProjectsDisplay projects = {projects} />
 
+        <ul className= "newProject">
+            {projectAdditions}
+         </ul>
+
          </div>
+         
          </>
     )
 }   
 
-function ShowNewProject({project}){ //project is given as a parameter
+function AddProject({project}){  //i have to go through tbis ass my button is not submitting a new addition of a project
     return (
-        <p>
-            
+        <div>
+        <li>
+        <p>{project.title}</p>
+        <p>{project.description}
         </p>
+        </li>
+        </div>
     )
 }
 
