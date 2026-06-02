@@ -1,0 +1,27 @@
+.Webpage {
+  background-image: url(https://wallpapercave.com/wp/wp15247408.webp);
+}
+.find {
+  color: #698403;
+  text-align: center;
+
+}
+
+.testerrr{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container{
+border: solid #735342 10px; 
+border-block-color: #a9fd48;
+display: flex;
+justify-content: center;
+padding: 15px;
+border-inline: solid #499ccf 15px;
+}
+p {
+  color: #7cda51;
+  font-weight: bold
+}
