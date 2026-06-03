@@ -3,12 +3,17 @@ import React from "react";
 function ProjectCard({project}) {
     return (
          <div className='container'>
-        <p className='ProjectList'>{project.name}</p>
+        <p className='ProjectList' style = {{maxWidth: "80px", marginRight: "5px", paddingLeft: "15px"}}>{project.name}</p>
             {project.test.map((project, index) => (
                 <p key = {index}>{project.id}</p>
-            ))}
+            )
+            )}
+
             <img src =
-                {project.img} style= {{width:250,height:204,display: 'flex',flexWrap: "wrap",justifyContent: "center"}}></img>        
+                {project.img} 
+                style= {{width:200,height:200,
+                border: "solid #564029", margin: "10px",}}>
+                    </img>        
         </div>
     )
 }
