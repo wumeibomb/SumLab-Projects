@@ -89,11 +89,12 @@ function App() {
             style = {{height: "80px",padding: "8px", display: "flex", margin: "5px"}}
             />
 
+            <h4 style= {{margin: "5px", paddingLeft: "2px", color: "#7cda51"}}>Add IMG: (icon sizing)</h4>
             <input 
             type='file'
             style={{margin: "8px"}}
             name = 'IMG'
-            ></input>
+            ></input> 
 
              <button type= "submit" //how do I display the Image/file added?
              style={{height: "30px",fontSize: "15px", textAlign: "center", margin: "4px"}}
