@@ -51,7 +51,6 @@ function App() {
 
   const handleNewProject = (event)=> {
     event.preventDefault() 
-
     const newProject = {
         id: Date.now(),
         ...formData
@@ -59,14 +58,15 @@ function App() {
     setNewProject([...projects, newProject])
 
 }
-   const projectAdditions = projects.map((project) => <AddProject project = {project} />) //calling component
+   const projectAdditions = project.map((project) => <AddProject project = {project} />) //calling component, really need to work on my map skills...
         
     return (
         <>
         <div className='Webpage' style={{backgroundSize: "1500px" }}>
 
         <h1 className="find" >Personal Project Showcase App</h1>
-
+        <h3 className='find'> Add a Project:</h3>
+        
         <div className='form' style={{display: "flex",justifyContent: "center"}}>
          <form onSubmit={handleNewProject} style = {{margin: "15px", border: "solid #8e1a1cb6", borderRadius: "7px", display: "flex", flexDirection: "column", width: "500px"}}>
 
@@ -82,16 +82,20 @@ function App() {
 
             <p style={{marginTop: "10px", marginLeft: "5px", marginBottom: "1px"}}>Description</p>
             <textarea  //this didn't work initially as it was input instead of textarea
-            type = "text"
             value= {formData.description}
             onChange={handleInputChange}
             name = 'description'
-            placeholder='Ohbabyiwasgettingbored'
+            placeholder='desc please'
             style = {{height: "80px",padding: "8px", display: "flex", margin: "5px"}}
             />
 
+            <input 
+            type='file'
+            style={{margin: "8px"}}
+            name = 'IMG'
+            ></input>
 
-             <button type= "submit" //i also wanted to add an image submission button, but I couldn't find a way to do it in js...
+             <button type= "submit" //how do I display the Image/file added?
              style={{height: "30px",fontSize: "15px", textAlign: "center", margin: "4px"}}
                > ADD
                 </button>
@@ -102,13 +106,11 @@ function App() {
 
          <h2 style= {{textAlign: "center", color:"#698403"}}>Projects:</h2>
          <ProjectsDisplay projects = {projects} />
-
-        <ul className= "newProject">
+        <h2 className= "newProject">
             {projectAdditions}
-         </ul>
+         </h2>
 
          </div>
-         
          </>
     )
 }   
@@ -116,11 +118,8 @@ function App() {
 function AddProject({project}){  //i have to go through tbis ass my button is not submitting a new addition of a project
     return (
         <div>
-        <li>
-        <p>{project.title}</p>
-        <p>{project.description}
-        </p>
-        </li>
+        <h2>{project.title}</h2>
+        <p>{project.description}</p>
         </div>
     )
 }
