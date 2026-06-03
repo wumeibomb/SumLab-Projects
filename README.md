@@ -10,12 +10,12 @@
       causing an uneven format so I have chosen not to include it.
    - third, adding more than one project. Instead of adding the next, it updates the first.
 ### To work on the project: 
-Git clone this repository into your system using Ubuntu
-- Run the code on yout chosen platform, (I used VS code) and write in the terminal
+- Git clone this repository into your system using Ubuntu
+- Run the code on your chosen platform (I used VS code) and write in the terminal
 " npm run dev ".
 - This command will give you a local host for you to copy or click the link to 
 go check the website.
 
-[Note] 
- - I didn't deploy as the instructions on the sumLab page ask us to link our gitHub not the
+> [!Note] 
+  I didn't deploy as the instructions on the sumLab page ask us to link our gitHub not the
    webpage itself.
